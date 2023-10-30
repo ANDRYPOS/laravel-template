@@ -22,6 +22,11 @@
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
     {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" /> --}}
+    {{-- <link href="https://code.jquery.com/jquery-3.7.0.js">
+    <link href="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js">
+    <link href="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js">
+    <link href="https://cdn.tailwindcss.com">
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css" rel="stylesheet"> --}}
 </head>
 
 <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
@@ -265,5 +270,5 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- main script file  -->
 <script src="{{ asset('assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5') }}" async></script>
-
-</html>
+<script src="{{ asset('assets/js/datatable.js') }}">
+    < /html>
