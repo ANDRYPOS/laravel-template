@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/data', [DataController::class, 'index'])->name('view-data');
-Route::get('/report', [DataController::class, 'report'])->name('report-data');
-Route::get('/user', [UserController::class, 'index'])->name('user-data');
+Route::get('/home', function () {
+    return redirect('/');
+});
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login-proses', [LoginController::class, 'authenticate']);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/data', [DataController::class, 'index'])->name('view-data');
+    Route::get('/insert-data', [DataController::class, 'insert'])->name('insert-data');
+    Route::get('/report', [DataController::class, 'report'])->name('report-data');
+    Route::get('/user', [UserController::class, 'index'])->name('user-data');
+    Route::get('/insert-user', [UserController::class, 'insert'])->name('insert-user');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});

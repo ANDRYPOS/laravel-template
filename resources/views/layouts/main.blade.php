@@ -21,12 +21,6 @@
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" /> --}}
-    {{-- <link href="https://code.jquery.com/jquery-3.7.0.js">
-    <link href="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js">
-    <link href="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js">
-    <link href="https://cdn.tailwindcss.com">
-    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css" rel="stylesheet"> --}}
 </head>
 
 <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
@@ -38,10 +32,12 @@
         <!-- Navbar -->
         <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
             navbar-main navbar-scroll="true">
-            <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-                {{-- <nav>
+            <div class="flex items-center justify-between w-full py-2 mx-auto flex-wrap-inherit">
+                <nav>
                     <!-- breadcrumb -->
-                    <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+                    <div class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">Universitas Pamulang
+                    </div>
+                    {{-- <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
                         <li class="text-sm leading-normal">
                             <a class="opacity-50 text-slate-700" href="javascript:;">Pages</a>
                         </li>
@@ -51,17 +47,25 @@
                                 Dashboard
                             @elseif (request()->routeIs('view-data'))
                                 Data
+                            @elseif (request()->routeIs('report-data'))
+                                Report
+                            @elseif (request()->routeIs('user-data'))
+                                User
                             @endif
                         </li>
-                    </ol>
+                    </ol> --}}
                     <h6 class="mb-0 font-bold capitalize">
                         @if (request()->routeIs('dashboard'))
                             Dashboard
                         @elseif (request()->routeIs('view-data'))
                             Data
+                        @elseif (request()->routeIs('report-data'))
+                            Report
+                        @elseif (request()->routeIs('user-data'))
+                            User
                         @endif
                     </h6>
-                </nav> --}}
+                </nav>
 
                 <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
                     <div class="flex items-center md:ml-auto md:pr-4">
@@ -84,7 +88,7 @@
                             <a href="{{ url('user-setting') }}"
                                 class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500">
                                 <i class="fa fa-user sm:mr-1"></i>
-                                <span class="hidden sm:inline">Auth session -> name</span>
+                                <span class="hidden sm:inline">{{ Auth::user()->name }}</span>
                             </a>
                         </li>
                         <li class="flex items-center pl-4 xl:hidden">
@@ -109,7 +113,7 @@
 
                         <!-- notifications -->
 
-                        <li class="relative flex items-center pr-2">
+                        {{-- <li class="relative flex items-center pr-2">
                             <p class="hidden transform-dropdown-show"></p>
                             <a href="javascript:;"
                                 class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" dropdown-trigger
@@ -200,7 +204,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -234,18 +238,24 @@
             <div class="flex-auto p-6 pt-0 sm:pt-4">
                 <!-- Sidenav Type -->
                 <div class="mt-4">
-                    <h6 class="mb-0">Sidenav Type</h6>
-                    <p class="text-sm leading-normal">Choose between 2 different sidenav types.</p>
+                    <h6 class="mb-0">{{ Auth::user()->name }}</h6>
+                    <p class="text-sm leading-normal">{{ Auth::user()->role }}</p>
                 </div>
                 <div class="flex">
-                    <button transparent-style-btn
-                        class="inline-block w-full px-4 py-3 mb-2 text-xs font-bold text-center text-white uppercase align-middle transition-all border border-transparent border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-purple-700 xl-max:to-pink-500 xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-purple-700 to-pink-500 bg-fuchsia-500 hover:border-fuchsia-500"
-                        data-class="bg-transparent" active-style>Transparent</button>
-                    <button white-style-btn
+                    <form method="post" action="{{ url('logout') }}" class="w-full max-w-sm">
+                        @csrf
+                        <input type="submit" value="Logout"
+                            class="inline-block w-full px-4 py-3 mb-2 text-xs font-bold text-center text-white uppercase align-middle transition-all border border-transparent border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-blue-600 xl-max:to-cyan-400 xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-blue-600 to-cyan-400 bg-fuchsia-500 hover:border-fuchsia-500"
+                            data-class="bg-transparent">
+                    </form>
+                    {{-- <a href="{{ url('logout') }}"
+                        class="inline-block w-full px-4 py-3 mb-2 text-xs font-bold text-center text-white uppercase align-middle transition-all border border-transparent border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-blue-600 xl-max:to-cyan-400 xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-blue-600 to-cyan-400 bg-fuchsia-500 hover:border-fuchsia-500"
+                        data-class="bg-transparent">Logout</a> --}}
+                    {{-- <button white-style-btn
                         class="inline-block w-full px-4 py-3 mb-2 ml-2 text-xs font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-purple-700 xl-max:to-pink-500 xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 border-fuchsia-500 bg-none text-fuchsia-500 hover:border-fuchsia-500"
-                        data-class="bg-white">White</button>
+                        data-class="bg-white">White</button> --}}
                 </div>
-                <p class="block mt-2 text-sm leading-normal xl:hidden">You can change the sidenav type just on desktop
+                {{-- <p class="block mt-2 text-sm leading-normal xl:hidden">You can change the sidenav type just on desktop
                     view.</p>
                 <!-- Navbar Fixed -->
                 <div class="mt-4">
@@ -255,7 +265,7 @@
                     <input navbarFixed
                         class="rounded-10 duration-250 ease-soft-in-out after:rounded-circle after:shadow-soft-2xl after:duration-250 checked:after:translate-x-5.25 h-5 relative float-left mt-1 ml-auto w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-slate-800/95 checked:bg-slate-800/95 checked:bg-none checked:bg-right"
                         type="checkbox" />
-                </div>
+                </div> --}}
 
             </div>
         </div>

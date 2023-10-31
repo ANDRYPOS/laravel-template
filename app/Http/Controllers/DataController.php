@@ -12,6 +12,12 @@ class DataController extends Controller
         return view('data.data');
     }
 
+    //view page insert
+    public function insert()
+    {
+        return view('data.insert-data');
+    }
+
     //view report
     public function report()
     {

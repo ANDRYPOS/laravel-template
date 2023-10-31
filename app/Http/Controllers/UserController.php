@@ -10,4 +10,8 @@ class UserController extends Controller
     {
         return view('auth.user-setting');
     }
+    public function insert()
+    {
+        return view('auth.insert-user');
+    }
 }
