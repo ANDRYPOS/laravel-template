@@ -12,8 +12,8 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
@@ -57,11 +57,11 @@
                     <h6 class="mb-0 font-bold capitalize">
                         @if (request()->routeIs('dashboard'))
                             Dashboard
-                        @elseif (request()->routeIs('view-data'))
+                        @elseif (request()->routeIs('view-data') || request()->routeIs('insert-data'))
                             Data
                         @elseif (request()->routeIs('report-data'))
                             Report
-                        @elseif (request()->routeIs('user-data'))
+                        @elseif (request()->routeIs('user-data') || request()->routeIs('insert-user'))
                             User
                         @endif
                     </h6>

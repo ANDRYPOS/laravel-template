@@ -23,4 +23,8 @@ class DataController extends Controller
     {
         return view('data.report');
     }
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }

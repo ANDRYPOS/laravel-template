@@ -27,9 +27,10 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/data', [DataController::class, 'index'])->name('view-data');
-    Route::get('/insert-data', [DataController::class, 'insert'])->name('insert-data');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); //dashboard
+    Route::get('/data', [DataController::class, 'index'])->name('view-data'); //view data
+    Route::get('/insert-data', [DataController::class, 'insert'])->name('insert-data'); //view form insert data
+    Route::post('/post-data', [DataController::class, 'store'])->name('insert-data'); //proses insert data
     Route::get('/report', [DataController::class, 'report'])->name('report-data');
     Route::get('/user', [UserController::class, 'index'])->name('user-data');
     Route::get('/insert-user', [UserController::class, 'insert'])->name('insert-user');
