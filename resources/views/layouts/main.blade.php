@@ -24,6 +24,7 @@
 </head>
 
 <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
+    {{-- @include('sweetalert::alert') --}}
     <!-- sidenav  -->
     @include('layouts.sidebar')
     <!-- end sidenav -->
