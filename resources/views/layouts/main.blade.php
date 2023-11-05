@@ -117,14 +117,18 @@
             <div class="flex-auto p-6 pt-0 sm:pt-4">
                 <!-- Sidenav Type -->
                 <div class="mt-4">
-                    <h6 class="mb-0">{{ Auth::user()->name }}</h6>
-                    <p class="text-sm leading-normal">{{ Auth::user()->role }}</p>
+                    <div class="mx-auto" style="display: flex; justify-content:center; align-items: center">
+                        <img src="{{ asset('storage/avatars/') }}/{{ Auth::user()->avatar }}"
+                            class="inline-flex text-sm text-white transition-all duration-200 ease-soft-in-out h-30 w-30 rounded-xl">
+                    </div>
+                    <h6 class="mb-0 text-center w-full">{{ Auth::user()->name }}</h6>
+                    <p class="text-sm leading-normal text-center">Logged as : {{ Auth::user()->role }}</p>
                 </div>
                 <div class="flex">
                     <form method="post" action="{{ url('logout') }}" class="w-full max-w-sm">
                         @csrf
                         <input type="submit" value="Logout"
-                            class="inline-block w-full px-4 py-3 mb-2 text-xs font-bold text-center text-white uppercase align-middle transition-all border border-transparent border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-blue-600 xl-max:to-cyan-400 xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-blue-600 to-cyan-400 bg-fuchsia-500 hover:border-fuchsia-500"
+                            class="inline-block w-full mx-auto px-4 py-3 mb-2 text-xs font-bold text-center text-white uppercase align-middle transition-all border border-transparent border-solid rounded-lg cursor-pointer xl-max:cursor-not-allowed xl-max:opacity-65 xl-max:pointer-events-none xl-max:bg-gradient-to-tl xl-max:from-blue-600 xl-max:to-cyan-400 xl-max:text-white xl-max:border-0 hover:scale-102 hover:shadow-soft-xs active:opacity-85 leading-pro ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-blue-600 to-cyan-400 bg-fuchsia-500 hover:border-fuchsia-500"
                             data-class="bg-transparent">
                     </form>
                 </div>

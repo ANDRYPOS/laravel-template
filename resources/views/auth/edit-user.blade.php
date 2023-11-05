@@ -49,6 +49,7 @@
                 <form class="w-full max-w-lg" method="post" action="{{ url('update-user') }}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
+                    <input type="hidden" value="{{ $dataUser->id }}" name="id">
                     {{-- fullname --}}
                     <div class="flex flex-wrap -mx-3 mb-3 mt-2">
                         <div class="w-full md:w-full px-3 mb-6 md:mb-0">

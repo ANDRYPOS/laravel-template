@@ -90,7 +90,7 @@
                                                 <a class="text-xs font-semibold leading-tight text-slate-400 bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
                                                     href="/edit-user/{{ $dataUser->id }}" role="button">Edit</a>
                                                 <a class="text-xs font-semibold leading-tight text-slate-400 bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
-                                                    href="{{ url('delete-user') }}">Delete</a>
+                                                    href="/destroy-user/{{ $dataUser->id }}">Delete</a>
                                             </td>
 
                                         </tr>

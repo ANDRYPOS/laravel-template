@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\LoginController;
@@ -32,16 +33,25 @@ Route::middleware(['auth'])->group(function () {
     // data
     Route::get('/data', [DataController::class, 'index'])->name('view-data'); //view data
     Route::get('/insert-data', [DataController::class, 'insert'])->name('insert-data'); //view form insert data
-    Route::post('/post-data', [DataController::class, 'store'])->name('insert-data'); //proses insert data
+    Route::post('/store-data', [DataController::class, 'store'])->name('insert-data'); //proses insert data
     Route::get('/report', [DataController::class, 'report'])->name('report-data');
 
     // user
     Route::get('/user', [UserController::class, 'index'])->name('user-data');
     Route::get('/insert-user', [UserController::class, 'insert'])->name('insert-user');
-    Route::post('/store-user', [UserController::class, 'store'])->name('store-user');
-    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('store-user');
+    Route::post('/store-user', [UserController::class, 'store'])->name('insert-user');
+    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('insert-user');
     Route::put('/update-user', [UserController::class, 'update'])->name('update-user');
+    Route::get('/destroy-user/{id}', [UserController::class, 'destroy'])->name('destroy-user');
 
     // auth
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    //categori
+    Route::get('/categori', [CategoriesController::class, 'index'])->name('view-categories');
+    Route::get('/insert-categori', [CategoriesController::class, 'insert'])->name('view-categories');
+    Route::post('/store-category', [CategoriesController::class, 'store'])->name('view-categories');
+    Route::get('/edit-category/{id}', [CategoriesController::class, 'edit'])->name('view-categories');
+    Route::put('/update-category', [CategoriesController::class, 'update'])->name('view-categories');
+    Route::get('/destroy-category/{id}', [CategoriesController::class, 'destroy'])->name('view-categories');
 });

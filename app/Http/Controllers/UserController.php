@@ -137,4 +137,17 @@ class UserController extends Controller
 
         return redirect('/user')->with('toast_success', 'Data Successfully Updated');
     }
+
+    public function destroy($id)
+    {
+        // get data user berdasarkan id
+        $users = User::find($id);
+
+        // delete file dari storage
+        $delete = Storage::delete('public/avatars/' . $users->avatar);
+
+        // delete data pada databsae
+        $users->delete();
+        return redirect('/user')->with('toast_success', 'Data Deleted Successfully');
+    }
 }
