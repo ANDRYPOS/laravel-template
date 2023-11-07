@@ -50,7 +50,7 @@
                 {{-- fullname --}}
                 <div class="flex
                 flex-wrap -mx-3 mb-3 mt-2">
-                    <div class="w-full md:w-full px-3 mb-6 md:mb-0">
+                    <div class="w-1/2 md:w-full px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-first-name">
                             Fullname
@@ -58,6 +58,15 @@
                         <input
                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                             type="text" placeholder="John Doe" name="name">
+                    </div>
+                    <div class="w-1/2 md:w-full px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-first-name">
+                            Username
+                        </label>
+                        <input
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                            type="text" placeholder="JohnDoe" name="username">
                     </div>
                 </div>
 
@@ -166,7 +175,7 @@
                     </div>
                 </div>
                 <input type="submit" value="submit"
-                    class="text-xs font-semibold leading-tight text-slate-400 bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
+                    class="text-xs cursor-pointer mt-2 font-semibold leading-tight text-slate-400 bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
             </form>
         </a>
     </div>

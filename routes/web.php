@@ -38,11 +38,11 @@ Route::middleware(['auth'])->group(function () {
 
     // user
     Route::get('/user', [UserController::class, 'index'])->name('user-data');
-    Route::get('/insert-user', [UserController::class, 'insert'])->name('insert-user');
-    Route::post('/store-user', [UserController::class, 'store'])->name('insert-user');
-    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('insert-user');
-    Route::put('/update-user', [UserController::class, 'update'])->name('update-user');
-    Route::get('/destroy-user/{id}', [UserController::class, 'destroy'])->name('destroy-user');
+    Route::get('/insert-user', [UserController::class, 'insert'])->name('user-data');
+    Route::post('/store-user', [UserController::class, 'store'])->name('user-data');
+    Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('user-data');
+    Route::put('/update-user', [UserController::class, 'update'])->name('user-data');
+    Route::get('/destroy-user/{id}', [UserController::class, 'destroy']);
 
     // auth
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

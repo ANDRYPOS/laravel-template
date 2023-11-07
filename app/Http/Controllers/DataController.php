@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
+use App\Models\Data;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
@@ -9,13 +12,16 @@ class DataController extends Controller
     //view data
     public function index()
     {
-        return view('data.data');
+        $data = Data::all();
+        return view('data.data', compact(['data']));
     }
 
     //view page insert
     public function insert()
     {
-        return view('data.insert-data');
+        $category = Categories::all();
+        $user = User::all();
+        return view('data.insert-data', compact(['category', 'user']));
     }
 
     //view report

@@ -83,16 +83,16 @@
                                             <td
                                                 class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                 <span
-                                                    class="text-xs font-semibold leading-tight text-slate-400">{{ $dataUser->created_at }}</span>
+                                                    class="text-xs font-semibold leading-tight text-slate-400">{{ date_format($dataUser->created_at, 'D, d M Y H:i') }}</span>
                                             </td>
                                             <td
                                                 class="p-2 text-center align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
                                                 <a class="text-xs font-semibold leading-tight text-slate-400 bg-gradient-to-tl from-slate-600 to-slate-300 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
-                                                    href="/edit-user/{{ $dataUser->id }}" role="button">Edit</a>
-                                                <a class="text-xs font-semibold leading-tight text-slate-400 bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
-                                                    href="/destroy-user/{{ $dataUser->id }}">Delete</a>
-                                            </td>
+                                                    href="{{ url('edit-user/' . $dataUser->id) }}" role="button">Edit</a>
 
+                                                <a class="text-xs font-semibold leading-tight text-slate-400 bg-gradient-to-tl from-green-600 to-lime-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
+                                                    href="{{ url('destroy-user/' . $dataUser->id) }}">Delete</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

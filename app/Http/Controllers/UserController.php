@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -47,6 +44,7 @@ class UserController extends Controller
         $request->validate(
             [
                 'email' => 'required|email',
+                'username' => 'required|min:1',
                 'name' => 'required|min:2',
                 'role' => 'required',
                 'phone' => 'required|numeric',
@@ -66,6 +64,7 @@ class UserController extends Controller
         // create data user ke database
         $users = User::create([
             'email' => $request->email,
+            'username' => $request->username,
             'name' => $request->name,
             'role' => $request->role,
             'phone' => $request->phone,
@@ -100,6 +99,7 @@ class UserController extends Controller
         $request->validate(
             [
                 'name' => 'required|min:2',
+                'username' => 'required|min:1',
                 'role' => 'required',
                 'phone' => 'required|numeric',
                 'address' => 'required|min:2',
@@ -128,6 +128,7 @@ class UserController extends Controller
         // update data
         $users->update([
             'email' => $request->email,
+            'username' => $request->username,
             'name' => $request->name,
             'role' => $request->role,
             'phone' => $request->phone,

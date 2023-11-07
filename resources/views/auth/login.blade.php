@@ -122,19 +122,26 @@
                                     <h3
                                         class="relative z-10 font-bold text-transparent bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text">
                                         Welcome</h3>
-                                    <p class="mb-0">Enter your email and password to sign in</p>
+                                    <p class="mb-0">Enter your username and password to sign in</p>
                                 </div>
                                 <div class="flex-auto p-6">
                                     <form role="form" method="post" action="{{ url('login-proses') }}">
                                         @csrf
-                                        <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Email</label>
+                                        <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Username
+                                            @error('username')
+                                                <small class="text-red-600 font-bold">{{ $message }}</small>
+                                            @enderror
+                                        </label>
                                         <div class="mb-4">
-                                            <input type="email"
+                                            <input type="text"
                                                 class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                                                placeholder="Email" aria-label="Email" aria-describedby="email-addon"
-                                                name="email" />
+                                                placeholder="Username" name="username" />
                                         </div>
-                                        <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Password</label>
+                                        <label class="mb-2 ml-1 font-bold text-xs text-slate-700">Password
+                                            @error('password')
+                                                <small class="text-red-600 font-bold">{{ $message }}</small>
+                                            @enderror
+                                        </label>
                                         <div class="mb-4">
                                             <input type="password"
                                                 class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"

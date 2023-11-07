@@ -18,11 +18,11 @@ class LoginController extends Controller
         // cek validasi request
         $credentials = $request->validate(
             [
-                'email' => ['required', 'email'],
+                'username' => ['required'],
                 'password' => ['required'],
             ],
             [
-                'email.required' => 'Email cannot be empty!',
+                'username.required' => 'Email cannot be empty!',
                 'password.required' => 'Password cannot be empty!'
             ]
         );
@@ -36,9 +36,9 @@ class LoginController extends Controller
 
         // jika invalid
         return back()->withErrors([
-            'email' => 'Email not found',
+            'username' => 'Username not found',
             'password' => 'Wrong password'
-        ])->onlyInput(['email', 'password']);
+        ])->onlyInput(['username', 'password']);
     }
 
     public function logout(Request $request): RedirectResponse

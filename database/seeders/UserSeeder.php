@@ -15,7 +15,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'email' => 'admin@test.com',
+            'email' => 'a@test.com',
+            'username' => 'a',
             'name' => 'Andri',
             'role' => 'admin',
             'avatar' => 'avatar_user.jpg',
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'staff@test.com',
+            'username' => 'b',
             'name' => 'Andristaff',
             'role' => 'staff',
             'avatar' => 'avatar_user.jpg',
@@ -34,6 +36,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'email' => 'mahasiswa@test.com',
+            'username' => 'c',
             'name' => 'Andrimhs',
             'role' => 'staff',
             'avatar' => 'avatar_user.jpg',
